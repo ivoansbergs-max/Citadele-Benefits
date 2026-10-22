@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F9F9F9">
+<style>*,::before,::after{box-sizing:border-box}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Citadele Benefit Swipe</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEGklEQVR42t2XXWhcRRiGn5k5Z7PZ7G4SW4sopmpNhLZEJVB6U2+KiBasIATUWpGq1auIUkEF9ULxrt5YRO+kYu9EUlAQLwoFEX9aii2JTf2ptbbGms3PbjbZMzOfF3OSTTSJ+bXgwGHhzJ6Zd77v/b73HXWBrcJVHJqrPKJlf6kApcMvChAQAS9rDEAr0BqsRaQKWARBoYEYRQyRCUC8X2UAxiBuAvHjaNNCfEs75voNqEyMHy3jLg7ifr2EtyMosiiVDVFZFQBG412JuG0TTc88RG73TqL2jeG06ZDxKnbgPBOffUHl/Y9JzvT/Kwi1qCowCu/GKOzfS/Obz6Nbi/U5LyH/SoVnCkwtYejhA1Q+6kXrAji/zAgYjXejtLzxIsWXngrvrA08EEB8IKN4xAsoUM6jGjKohiyImwVsaQCMwbsShf37wuaJDSGPokAwo2dVsprKhhHc5StUez9Hk5/39AsD0BrxVeKbb6PlrRfCIpEJp/EetCY50Uflw15s309gDPEdHTTuvptM12Yqh47gyoPo6BqwbhkcSE+/7r2DND35YFgkMtOblw8epnTgdcRX03MIYNGqhYYdXdS+Oo1MVkOEFmDZ3ACUAknQ69Zz3Q+foIv5OuGMZuLT4wzetwetiygThdxPfWctwjiKxjQ9yylDo/G2SuNdXejmlMEm7XoijL5yCKUi0AZJ7D86pNL5AFZkJVrgyWzvDItI2tW0wp49T+3EGRS5uXMrBMAiKxAjATBEt7bVSygNc3J6AO/LoM0aqqEIiqjecGbUsft9CHCpCK21HOs5pr37D/yAAnDI2PjMnIQPWoqraiPmAaAQLPbCpfr+aRqijo0oGhbsbquWguRk/2wfIBB3dhDd2Iao2twp+htnlgfAC4osk8e+DqVmdFjUOVS2gXzPI3g/EjRB67oSGh26pdiVAvAo3Ugy0M/k8W9T+jswoRUXeh4l/0A3rvYb4sdBLCIJ4sp4W0IVisDiUmSeY8Nr81aAVPEXR8jtvX+6DU/N5brvwTRfi/9zGBKPLuTJ3LmFQs8TtL77Kv7KMJOnvkGZ3AoMSeoF1h9+m9yeXVBLIBOnpJwRsNIoGF3XDMCe/ZnLm3eBX1iMFq4nL2idY+jpl6l9+V3YPLHBhIhMt2LdWgybT72rJUSb2sju3IGXSj1ySwYgAhIhlQn+uPdxqkePQRzV3VDqjiQJTxAtE4AaTbxtC2AXrIrFeUKlEakBjqZ93RSefYx4a/u8f7f9P1L54Cjld44gpTHAzMsDteirWXoKLyPoqJnM9tvJbOskuukGVEMGXxrBnvuF2sk+klPf4+0wmqYZZoUVApjhlHAWoYqQzOjdgZmKGEU29IhFyPLSb0YuuFyl86i5cuslkNQuTrSWdzecMh3/h9vxX37wyobwrZ7XAAAAAElFTkSuQmCC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* Layout: one-screen mobile app — header, card stack in the middle, answer buttons at the thumb. Light-only by brand rule. */
+:root{
+  --red:#E3002C; --black:#251F30; --white:#FFFFFF; --pink:#FFBCBC; --neutral:#675F6B; --accent:#804F91;
+  --surface:#F9F9F9; --pink25:#FFEFEF; --pink50:#FFE0E0; --accent25:#D8CDE0; --neutral25:#D9D7DA; --black25:#CAC8CC;
+  --font:'Roboto',sans-serif;
+  color-scheme:light;
+}
+html,body{height:100%}
+body{background:var(--surface);color:var(--black);font-family:var(--font);font-size:16px;-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+button{font-family:var(--font);cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.app{max-width:520px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 16px}
+header{display:flex;align-items:center;justify-content:space-between;height:64px;flex-shrink:0}
+header .logo{height:32px;width:auto;display:block}
+header .logo svg{height:32px;width:auto;display:block}
+.lang{display:flex;border:1px solid var(--neutral25);border-radius:8px;overflow:hidden;background:var(--white)}
+.lang button{border:0;background:transparent;padding:6px 12px;font-size:14px;font-weight:700;color:var(--neutral)}
+.lang button[aria-pressed="true"]{background:var(--black);color:var(--white)}
+.screen{flex:1;display:flex;flex-direction:column;min-height:0}
+
+/* Intro */
+.intro{gap:20px;padding-top:8px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+h1{font-size:44px;line-height:1.02;font-weight:900;margin:0;letter-spacing:-.02em;text-wrap:balance}
+.lede{font-size:17px;line-height:1.5;color:var(--neutral);margin:0}
+.legend{display:grid;gap:8px}
+.legend .row{display:flex;align-items:center;gap:12px;background:var(--white);border-radius:12px;padding:12px 14px;box-shadow:0 2px 8px rgba(37,31,48,.06)}
+.legend .ic{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.legend .ic svg{width:22px;height:22px;stroke:currentColor;stroke-width:2.4;fill:none}
+.legend b{display:block;font-size:16px}
+.legend span{font-size:14px;color:var(--neutral)}
+.c-day1{background:var(--accent);color:var(--white)}
+.c-prob{background:var(--black);color:var(--white)}
+.c-none{background:var(--neutral25);color:var(--black)}
+.btn{border:0;border-radius:8px;padding:16px 24px;font-size:17px;font-weight:700}
+.btn-primary{background:var(--red);color:var(--white)}
+.btn-primary:active{background:#C80027}
+.btn-ghost{background:transparent;color:var(--black);border:2px solid var(--black)}
+.btn-link{background:none;border:0;color:var(--neutral);font-size:14px;font-weight:500;text-decoration:underline;padding:8px}
+.deco{position:relative}
+.deco{display:flex;justify-content:space-between;align-items:center;min-height:36px}
+.deco .ge{width:36px;height:36px}
+.deco .ge svg{width:36px;height:36px;display:block}
+.meta{font-size:13px;color:var(--neutral);display:flex;gap:16px;flex-wrap:wrap}
+
+/* Game */
+.hud{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:4px 0 12px}
+.bar{height:8px;background:var(--neutral25);border-radius:4px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--red);width:0;transition:width .3s}
+.count{font-size:13px;color:var(--neutral);margin-top:6px;font-variant-numeric:tabular-nums}
+.pill{display:flex;align-items:center;gap:6px;background:var(--white);border-radius:999px;padding:8px 12px;font-weight:700;font-size:15px;font-variant-numeric:tabular-nums;box-shadow:0 2px 8px rgba(37,31,48,.06)}
+.pill svg{width:18px;height:18px}
+.pill.streak{color:var(--accent)}
+.pill.streak.hot{background:var(--accent);color:var(--white)}
+.stage{flex:1;position:relative;min-height:340px;margin:4px 0 16px;touch-action:none}
+.card{position:absolute;inset:0;background:var(--white);border-radius:20px;box-shadow:0 10px 30px rgba(37,31,48,.12);display:flex;flex-direction:column;justify-content:space-between;padding:24px;user-select:none;-webkit-user-select:none;will-change:transform;overflow:hidden}
+.card.back{transform:scale(.94) translateY(16px);box-shadow:0 4px 14px rgba(37,31,48,.08);opacity:.9}
+.card .num{font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--neutral);text-transform:uppercase}
+.card .q{font-size:34px;line-height:1.1;font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+.card .ask{font-size:15px;color:var(--neutral)}
+.card .ge{position:absolute;right:20px;top:20px;width:44px;height:44px}
+.card .ge svg{width:44px;height:44px;display:block}
+.stamp{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%) rotate(-8deg);padding:10px 18px;border-radius:10px;font-weight:900;font-size:22px;text-transform:uppercase;letter-spacing:.04em;opacity:0;pointer-events:none;border:3px solid;white-space:nowrap;background:var(--white)}
+.stamp.s-day1{color:var(--accent);border-color:var(--accent)}
+.stamp.s-prob{color:var(--black);border-color:var(--black)}
+.stamp.s-none{color:var(--neutral);border-color:var(--neutral)}
+.answers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.ans{border:0;border-radius:14px;padding:12px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:13px;font-weight:700;line-height:1.2;min-height:84px;justify-content:center}
+.ans svg{width:24px;height:24px;stroke:currentColor;stroke-width:2.4;fill:none}
+.ans:active{transform:scale(.97)}
+.toast{position:absolute;left:50%;top:12px;transform:translateX(-50%);padding:10px 16px;border-radius:999px;font-weight:700;font-size:15px;display:flex;gap:8px;align-items:center;z-index:5;white-space:nowrap;box-shadow:0 6px 18px rgba(37,31,48,.18)}
+.toast svg{width:18px;height:18px;stroke:currentColor;stroke-width:3;fill:none}
+.toast.ok{background:var(--accent);color:var(--white)}
+.toast.no{background:var(--white);color:var(--neutral);border:1.5px solid var(--neutral)}
+.toast.show{animation:pop 1s ease forwards}
+@keyframes pop{0%{opacity:0;transform:translate(-50%,-6px)}15%{opacity:1;transform:translate(-50%,0)}75%{opacity:1}100%{opacity:0}}
+.hint{text-align:center;font-size:13px;color:var(--neutral);margin-top:10px}
+
+/* Results */
+.result{gap:20px;padding-top:8px}
+.scorebox{background:var(--white);border-radius:20px;padding:24px;box-shadow:0 2px 8px rgba(37,31,48,.06);position:relative;overflow:hidden}
+.scorebox .big{font-size:64px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.scorebox .unit{font-size:15px;color:var(--neutral);font-weight:500}
+.scorebox .title{font-size:24px;font-weight:900;margin-top:16px;color:var(--red)}
+.scorebox .sub{font-size:15px;color:var(--neutral);margin-top:4px;line-height:1.45}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
+.stats div{background:var(--surface);border-radius:12px;padding:10px 12px}
+.stats b{display:block;font-size:22px;font-variant-numeric:tabular-nums}
+.stats span{font-size:12px;color:var(--neutral)}
+.scorebox .ge{position:absolute;right:20px;top:20px;width:48px;height:48px}
+.scorebox .ge svg{width:48px;height:48px;display:block}
+h2{font-size:22px;font-weight:900;margin:8px 0 0}
+.review{display:grid;gap:8px}
+.ritem{background:var(--white);border-radius:12px;padding:14px;display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}
+.ritem .mk{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.ritem .mk svg{width:16px;height:16px;stroke:currentColor;stroke-width:3;fill:none}
+.ritem .mk.ok{background:var(--accent);color:var(--white)}
+.ritem .mk.no{background:var(--white);color:var(--neutral);border:1.5px solid var(--neutral)}
+.ritem h3{margin:0;font-size:16px;font-weight:700;line-height:1.3}
+.ritem .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tag{font-size:12px;font-weight:700;padding:4px 8px;border-radius:6px}
+.tag.yours{background:var(--surface);color:var(--neutral);text-decoration:line-through}
+.ritem p{margin:8px 0 0;font-size:14px;line-height:1.45;color:var(--neutral)}
+.actions{display:grid;gap:10px}
+.filter{display:flex;gap:6px}
+.filter button{border:1.5px solid var(--black25);background:var(--white);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700;color:var(--neutral)}
+.filter button[aria-pressed="true"]{border-color:var(--black);color:var(--black)}
+
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation-duration:.01ms!important}}
+</style>
+
+</head>
+<body>
+<div class="app" id="app">
+  <header>
+    <div class="logo" role="img" aria-label="Citadele"><svg viewBox="0 0 141.5 70.7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" xml:space="preserve" overflow="hidden"><g><rect x="0" y="0" width="141.5" height="70.7" fill="#E3002C"/><g><g><path d="M32.6 34.9C32.6 31.7 34.1 29.9 36.5 29.9 37.4 29.9 38.1 30.2 39 30.6 39.3 30.8 39.6 30.7 40 29.7L40.3 29C40.6 28.2 40.6 27.8 40.3 27.7 39.2 27.1 37.6 26.7 36.1 26.7 32 26.7 28.9 30 28.9 35 28.9 40 32 43.3 36.1 43.3 37.5 43.3 39.3 42.9 40.3 42.3 40.7 42.1 40.6 41.8 40.3 41L40 40.1C39.6 39.1 39.3 39 39 39.2 38.1 39.6 37.4 39.9 36.5 39.9 34.1 39.9 32.6 38.2 32.6 34.9" fill="#FFFFFF"/><path d="M78.1 34.7C77.7 34.2 77.1 34 76.5 34 75.2 34 74.5 35.2 74.5 37.4 74.5 38.6 74.8 39.4 75.1 39.9 75.4 40.3 76 40.5 76.5 40.5 77.1 40.5 77.6 40.4 77.8 40.1 78 39.9 78.1 39.5 78.1 38.8 78.1 38.8 78.1 34.7 78.1 34.7ZM81.7 42.4C81.7 42.8 81.5 43 80.3 43L80.2 43C78.9 43 78.7 42.9 78.6 42.6 78.5 42.4 78.5 42.2 78.4 42 77.7 42.8 76.9 43.3 75.6 43.3 72.6 43.3 70.7 41 70.7 37.4 70.7 33.5 72.7 31.2 75.7 31.2 76.5 31.2 77.3 31.5 77.9 31.9L77.9 26.8C77.9 26.5 77.9 26.3 79.6 26.3L80 26.3C81.6 26.3 81.7 26.4 81.7 26.8L81.7 42.4Z" fill="#FFFFFF"/><path d="M100 42.5C100 42.8 99.8 43 98.3 43L98.2 43C96.5 43 96.5 42.9 96.5 42.5L96.5 26.8C96.5 26.5 96.5 26.3 98.2 26.3L98.3 26.3C99.9 26.3 100 26.4 100 26.8L100 42.5Z" fill="#FFFFFF"/><path d="M91 36.1C90.9 34.9 90.5 33.8 89.3 33.8 88.3 33.8 87.5 34.6 87.4 36.1L91 36.1ZM87.4 38.3C87.6 39.7 88.5 40.4 89.9 40.4 91 40.4 92 40.2 93.1 39.6 93.4 39.5 93.6 39.6 93.8 40.4L94 40.8C94.3 41.6 94.2 41.8 94 42 92.6 42.8 91.2 43.1 89.6 43.1 86 43.1 83.8 40.9 83.8 37.2 83.8 33.6 85.9 31 89.4 31 92.9 31 94.7 33.5 94.7 37 94.7 38.2 94.6 38.3 94.2 38.3 94.2 38.3 87.4 38.3 87.4 38.3Z" fill="#FFFFFF"/><path d="M109.1 36.1C109 34.9 108.5 33.8 107.4 33.8 106.4 33.8 105.6 34.6 105.5 36.1L109.1 36.1ZM105.5 38.3C105.7 39.7 106.6 40.4 108 40.4 109.1 40.4 110.1 40.2 111.2 39.6 111.4 39.5 111.7 39.6 111.9 40.4L112.1 40.8C112.4 41.6 112.3 41.8 112.1 42 110.7 42.8 109.3 43.1 107.6 43.1 104 43.1 101.8 40.9 101.8 37.2 101.8 33.6 103.8 31 107.4 31 110.9 31 112.7 33.5 112.7 37 112.7 38.2 112.6 38.3 112.2 38.3 112.2 38.3 105.5 38.3 105.5 38.3Z" fill="#FFFFFF"/><path d="M68.7 42.4C68.7 42.8 68.5 43 67.3 43L67.1 43C65.8 43 65.6 42.9 65.5 42.6 65.5 42.4 65.4 42.2 65.3 42 64.6 42.8 63.8 43.3 62.6 43.3 59.7 43.3 57.8 41.1 57.8 37.5 57.8 33.5 60.1 31.2 62.8 31.2 63.9 31.2 64.9 31.7 65.4 32.3L65.4 31.8C65.4 31.6 65.5 31.4 66.8 31.4L66.9 31.4C68.3 31.4 68.5 31.5 68.5 31.9L68.5 42.4 68.7 42.4ZM65.1 34.8C64.8 34.3 64.2 34 63.5 34 62.2 34 61.5 35.2 61.5 37.3 61.5 39.1 62 40.4 63.4 40.4 64 40.4 64.4 40.3 64.6 40 64.9 39.7 65 39.3 65 38.5L65.1 34.8 65.1 34.8Z" fill="#FFFFFF"/><path d="M52 27.9C53.3 27.9 53.4 27.9 53.4 28.4L53.4 31.3 55.7 31.3C56 31.3 56.1 31.4 56.1 32.5L56.1 32.7C56.1 33.8 56 33.9 55.7 33.9L53.4 33.9 53.4 39.2C53.4 40.1 53.6 40.6 54.4 40.6 54.8 40.6 55.2 40.5 55.6 40.4 56 40.2 56.1 40.4 56.4 41.4L56.5 41.6C56.8 42.6 56.7 42.7 56.3 42.9 55.6 43.2 54.6 43.4 53.7 43.4 50.8 43.4 50 42 50 39.4L50 34 48.7 34C48.4 34 48.3 33.9 48.3 32.8L48.3 32.6C48.3 31.5 48.4 31.4 48.7 31.4L50.2 31.4C50.4 30.5 50.7 29.1 50.8 28.5 50.8 28 50.9 27.9 52 27.9" fill="#FFFFFF"/><path d="M44.4 26.1C45.5 26.1 46.4 27 46.4 28 46.4 29 45.6 29.9 44.4 29.9 43.3 29.9 42.4 29 42.4 28 42.4 27 43.3 26.1 44.4 26.1M44.5 31.3C46.1 31.3 46.2 31.4 46.2 31.8L46.2 42.5C46.2 42.9 46.1 43 44.5 43L44.4 43C42.7 43 42.6 42.9 42.6 42.5L42.6 31.8C42.6 31.5 42.6 31.3 44.5 31.3L44.5 31.3Z" fill="#FFFFFF"/></g></g></g></svg></div>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="lang-lv" data-lang="lv" aria-pressed="false">LV</button>
+      <button id="lang-en" data-lang="en" aria-pressed="true">EN</button>
+    </div>
+  </header>
+
+  <!-- INTRO -->
+  <section class="screen intro" id="s-intro">
+    <div class="deco">
+      <div class="eyebrow" data-t="eyebrow"></div>
+      <div class="ge" aria-hidden="true" id="ge-intro"></div>
+    </div>
+    <h1 data-t="title"></h1>
+    <p class="lede" data-t="lede"></p>
+    <div class="legend">
+      <div class="row"><div class="ic c-day1"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div><b data-t="o_day1"></b><span data-t="swipe_right"></span></div></div>
+      <div class="row"><div class="ic c-prob"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></div><div><b data-t="o_prob"></b><span data-t="swipe_up"></span></div></div>
+      <div class="row"><div class="ic c-none"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></div><div><b data-t="o_none"></b><span data-t="swipe_left"></span></div></div>
+    </div>
+        <button class="btn btn-primary" id="start" data-t="start"></button>
+    <div class="meta"><span id="meta-count"></span><span data-t="meta_time"></span></div>
+    </section>
+
+  <!-- GAME -->
+  <section class="screen" id="s-game" hidden>
+    <div class="hud">
+      <div><div class="bar"><i id="bar"></i></div><div class="count" id="count"></div></div>
+      <div class="pill streak" id="streak" aria-label="Streak"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><span id="streak-n">0</span></div>
+      <div class="pill" aria-label="Score"><span id="score">0</span></div>
+    </div>
+    <div class="stage" id="stage">
+      <div class="toast" id="toast" hidden></div>
+    </div>
+    <div class="answers">
+      <button class="ans c-none" data-a="none"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span data-t="o_none"></span></button>
+      <button class="ans c-prob" data-a="probation"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg><span data-t="o_prob"></span></button>
+      <button class="ans c-day1" data-a="day1"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-t="o_day1"></span></button>
+    </div>
+    <div class="hint" data-t="hint"></div>
+  </section>
+
+  <!-- RESULT -->
+  <section class="screen result" id="s-result" hidden>
+    <div class="scorebox">
+      <div class="ge" aria-hidden="true" id="ge-result"></div>
+      <div class="eyebrow" data-t="your_score"></div>
+      <div class="big" id="r-score">0</div>
+      <div class="unit" data-t="points"></div>
+      <div class="title" id="r-title"></div>
+      <div class="sub" id="r-sub"></div>
+      <div class="stats">
+        <div><b id="r-correct"></b><span data-t="st_correct"></span></div>
+        <div><b id="r-streak"></b><span data-t="st_streak"></span></div>
+        <div><b id="r-acc"></b><span data-t="st_acc"></span></div>
+      </div>
+    </div>
+        <div style="display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap">
+      <h2 data-t="answers_title"></h2>
+      <div class="filter" role="group">
+        <button id="f-all" aria-pressed="true" data-t="f_all"></button>
+        <button id="f-wrong" aria-pressed="false" data-t="f_wrong"></button>
+      </div>
+    </div>
+    <div class="review" id="review"></div>
+    <div class="actions">
+      <button class="btn btn-primary" id="again" data-t="again"></button>
+    </div>
+  </section>
+
+  </div>
+
+<script>
+
+/* answer codes: day1 = available from day one, probation = after probation period, none = doesn't exist at Citadele */
+const BENEFITS = [
+  {id:"volunteer", en:"Paid day off for volunteer work", lv:"Apmaksāta brīvdiena brīvprātīgajam darbam", a:"day1",
+   nen:"One paid volunteering day per year to support a cause that matters to you.", nlv:"Viena apmaksāta brīvprātīgā darba diena gadā, lai atbalstītu sev svarīgu mērķi."},
+  {id:"card", en:"Any C payment card without a monthly fee", lv:"Jebkura C maksājumu karte bez mēneša maksas", a:"day1",
+   nen:"Employees get discounts on Citadele Group products.", nlv:"Darbiniekiem ir atlaides Citadele grupas produktiem."},
+  {id:"netflix", en:"Free Netflix subscription", lv:"Bezmaksas Netflix abonements", a:"none",
+   nen:"Not part of the package. Look at the partner discounts instead.", nlv:"Nav mūsu piedāvājumā. Ieskaties partneru atlaidēs."},
+  {id:"mobile", en:"Fully covered mobile connection costs", lv:"Pilnībā segti mobilo sakaru izdevumi", a:"day1",
+   nen:"Citadele covers mobile phone connection costs.", nlv:"Citadele sedz mobilā telefona sakaru izdevumus."},
+  {id:"health", en:"Health insurance", lv:"Veselības apdrošināšana", a:"probation",
+   nen:"Comprehensive health insurance, with attractive offers for family members too.", nlv:"Plaša veselības apdrošināšana, kā arī izdevīgi piedāvājumi ģimenes locekļiem."},
+  {id:"flex", en:"Four extra vacation days", lv:"Četras papildu atvaļinājuma dienas", a:"day1",
+   nen:"Four annual flex days, available from your first day.", nlv:"Četras elastīgās dienas gadā, pieejamas jau no pirmās darba dienas."},
+  {id:"leasing", en:"Special leasing conditions", lv:"Īpaši līzinga nosacījumi", a:"probation",
+   nen:"Part of the employee offers on Citadele Group products.", nlv:"Daļa no darbinieku piedāvājumiem Citadele grupas produktiem."},
+  {id:"parking", en:"Free parking anywhere in the city", lv:"Bezmaksas stāvvieta jebkur pilsētā", a:"none",
+   nen:"Sadly not. That one would be hard to arrange.", nlv:"Diemžēl nē. To būtu grūti noorganizēt."},
+  {id:"lunch-rl2a", en:"Discount at the lunch restaurant at RL2A", lv:"Atlaide pusdienu restorānā RL2A", a:"day1",
+   nen:"Partner offer at the Riga head office (Republikas laukums 2A).", nlv:"Partnera piedāvājums Rīgas centrālajā birojā (Republikas laukums 2A)."},
+  {id:"accident", en:"Work accident insurance", lv:"Nelaimes gadījumu apdrošināšana darbā", a:"day1",
+   nen:"Work accident insurance is part of Health & Comfort benefits.", nlv:"Nelaimes gadījumu apdrošināšana ir daļa no veselības un labsajūtas labumiem."},
+  {id:"learning", en:"Learning opportunities in groups", lv:"Mācību iespējas grupās", a:"day1",
+   nen:"Extensive internal and external learning and development opportunities.", nlv:"Plašas iekšējās un ārējās mācību un attīstības iespējas."},
+  {id:"sports", en:"Group sports activities", lv:"Grupu sporta aktivitātes", a:"day1",
+   nen:"Group and individual sports activities across the Group.", nlv:"Grupu un individuālas sporta aktivitātes visā grupā."},
+  {id:"samsung", en:"Samsung OUTLET discounts", lv:"Samsung OUTLET atlaides", a:"day1",
+   nen:"One of the partner offers available to employees.", nlv:"Viens no darbiniekiem pieejamajiem partneru piedāvājumiem."},
+  {id:"mortgage", en:"Special mortgage loan conditions", lv:"Īpaši hipotekārā kredīta nosacījumi", a:"probation",
+   nen:"Part of the employee offers on Citadele Group products.", nlv:"Daļa no darbinieku piedāvājumiem Citadele grupas produktiem."},
+  {id:"trip", en:"A company-paid trip to a destination of your choice", lv:"Uzņēmuma apmaksāts ceļojums uz izvēlētu galamērķi", a:"none",
+   nen:"Not part of the package, but four flex days help you plan your own trip.", nlv:"Nav mūsu piedāvājumā, bet četras elastīgās dienas palīdzēs saplānot savu ceļojumu."},
+  {id:"gym", en:"24/7 gym access at RL2A", lv:"Sporta zāle 24/7 RL2A", a:"day1",
+   nen:"The Riga head office has a 24/7 gym.", nlv:"Rīgas centrālajā birojā ir sporta zāle, kas pieejama 24/7."},
+  {id:"fruit", en:"Refreshments and fruit", lv:"Uzkodas, dzērieni un augļi", a:"day1",
+   nen:"Fully equipped lounges in modern offices.", nlv:"Pilnībā aprīkotas atpūtas zonas modernos birojos."},
+  {id:"military", en:"Paid time off for military service training", lv:"Apmaksāts brīvais laiks militārā dienesta apmācībām", a:"day1",
+   nen:"Military leave is fully paid.", nlv:"Militārais atvaļinājums tiek pilnībā apmaksāts."},
+  {id:"study", en:"Paid study leave", lv:"Apmaksāts mācību atvaļinājums", a:"day1",
+   nen:"Paid study leave for state exams and diploma preparation or defence.", nlv:"Apmaksāts mācību atvaļinājums valsts eksāmeniem un diplomdarba izstrādei vai aizstāvēšanai."},
+  {id:"nap", en:"Nap room", lv:"Diendusas istaba", a:"none",
+   nen:"No nap room, but there are relaxation areas and massage chairs.", nlv:"Diendusas istabas nav, bet ir atpūtas zonas un masāžas krēsli."},
+  {id:"kids-room", en:"Children's room at the Riga head office", lv:"Bērnu istaba Rīgas centrālajā birojā", a:"day1",
+   nen:"A children's room for days when your kids come along.", nlv:"Bērnu istaba dienām, kad bērni nāk līdzi uz darbu."},
+  {id:"kids-shadow", en:"Shadow Day for employees' children", lv:"Ēnu diena darbinieku bērniem", a:"day1",
+   nen:"Once a year, employees' children can explore professions and banking.", nlv:"Reizi gadā darbinieku bērni var iepazīt profesijas un banku darbu."},
+  {id:"hybrid", en:"Hybrid working model", lv:"Hibrīdais darba modelis", a:"day1",
+   nen:"Hybrid work and flexible hours, depending on the role and team agreement.", nlv:"Hibrīdais darbs un elastīgs darba laiks atkarībā no amata un komandas vienošanās."},
+  {id:"referral", en:"Bonus for referring a new employee", lv:"Bonuss par jauna darbinieka ieteikšanu", a:"probation",
+   nen:"You get the referral bonus once the colleague you recommended has passed their probation period.", nlv:"Bonusu saņem, kad tevis ieteiktais kolēģis ir veiksmīgi izturējis pārbaudes laiku."},
+  {id:"massage", en:"Massage chairs in the office", lv:"Masāžas krēsli birojā", a:"day1",
+   nen:"Offices have relaxation areas with massage chairs.", nlv:"Birojos ir atpūtas zonas ar masāžas krēsliem."},
+  {id:"merch", en:"Citadele merchandise shop", lv:"Citadele suvenīru veikals", a:"day1",
+   nen:"Branded merchandise for employees.", nlv:"Zīmola suvenīri darbiniekiem."},
+  {id:"unlimited", en:"Unlimited paid vacation", lv:"Neierobežots apmaksāts atvaļinājums", a:"none",
+   nen:"Not unlimited, but long-term colleagues earn up to five extra loyalty days.", nlv:"Nav neierobežots, bet ilggadējiem kolēģiem ir līdz piecām papildu lojalitātes dienām."},
+  {id:"free-lunch", en:"Free lunch every day", lv:"Bezmaksas pusdienas katru dienu", a:"none",
+   nen:"Not free, but there is a discount at the RL2A lunch restaurant.", nlv:"Nav bezmaksas, bet RL2A pusdienu restorānā ir atlaide."},
+  {id:"dogs", en:"Pet-friendly office", lv:"Birojs, kurā drīkst nākt ar mājdzīvnieku", a:"none",
+   nen:"Pets stay at home for now.", nlv:"Pagaidām mājdzīvnieki paliek mājās."},
+  {id:"car", en:"Company car for every employee", lv:"Dienesta auto katram darbiniekam", a:"none",
+   nen:"No, but special leasing conditions make your own car easier.", nlv:"Nē, bet īpaši līzinga nosacījumi palīdz tikt pie sava auto."}
+];
+
+const T = {
+  en:{eyebrow:"Newcomers day",title:"Benefit or bluff?",lede:"Swipe through the cards and decide for each perk: do we have it at Citadele, and when does it start?",
+    o_day1:"From day one",o_prob:"After probation",o_none:"Doesn't exist",
+    swipe_right:"Swipe right",swipe_up:"Swipe up",swipe_left:"Swipe left",
+    start:"Start",meta_time:"About 3 minutes",cards:"cards",
+    
+    hint:"Swipe the card or tap a button",ask:"Does Citadele offer this?",
+    your_score:"Your score",points:"points",st_correct:"correct",st_streak:"best streak",st_acc:"accuracy",
+    answers_title:"Correct answers",f_all:"All",f_wrong:"My mistakes",again:"Play again",back:"Back",
+    correct:"Correct",wrong:"Not quite",streak_x:"streak",you_said:"You said",
+    t4:"Benefits guru",t3:"Benefits pro",t2:"Quick learner",t1:"Fresh explorer",
+    s4:"You already know the package better than most of us.",s3:"Great instinct. Check the few you missed below.",s2:"A solid start. The answers below fill the gaps.",s1:"Plenty to discover. Every answer is explained below.",
+    
+    
+    
+    of:"of"},
+  lv:{eyebrow:"Jauno darbinieku diena",title:"Ir vai nav?",lede:"Pavelc kartītes un izlem par katru labumu: vai Citadelē tāds ir un no kura brīža tas pieejams?",
+    o_day1:"No pirmās dienas",o_prob:"Pēc pārbaudes laika",o_none:"Nepastāv",
+    swipe_right:"Pavelc pa labi",swipe_up:"Pavelc uz augšu",swipe_left:"Pavelc pa kreisi",
+    start:"Sākt",meta_time:"Apmēram 3 minūtes",cards:"kartītes",
+    
+    hint:"Pavelc kartīti vai pieskaries pogai",ask:"Vai Citadele to piedāvā?",
+    your_score:"Tavs rezultāts",points:"punkti",st_correct:"pareizi",st_streak:"labākā sērija",st_acc:"precizitāte",
+    answers_title:"Pareizās atbildes",f_all:"Visas",f_wrong:"Manas kļūdas",again:"Spēlēt vēlreiz",back:"Atpakaļ",
+    correct:"Pareizi",wrong:"Ne gluži",streak_x:"sērija",you_said:"Tava atbilde",
+    t4:"Labumu guru",t3:"Labumu profs",t2:"Ātri mācās",t1:"Jaunais pētnieks",
+    s4:"Tu jau pārzini mūsu labumus labāk nekā daudzi no mums.",s3:"Lieliska intuīcija. Apskati, kurās kļūdījies.",s2:"Labs sākums. Atbildes zemāk aizpildīs robus.",s1:"Vēl daudz ko atklāt. Katra atbilde ir paskaidrota zemāk.",
+    
+    
+    
+    of:"no"}
+};
+const OPT = {day1:"o_day1",probation:"o_prob",none:"o_none"};
+const OPTCLS = {day1:"c-day1",probation:"c-prob",none:"c-none"};
+const GE = ["<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"862.0508 669.7266 260.4766 260.4805\"> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1122.527344 930.207031 L 862.050781 930.207031 L 862.050781 669.726562 L 1122.527344 669.726562 Z M 1122.527344 930.207031 \"/> </svg>","<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1383.5078 148.2930 260.4766 260.4805\"> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1470.332031 191.707031 C 1470.332031 215.683594 1450.894531 235.121094 1426.917969 235.121094 C 1402.945312 235.121094 1383.507812 215.683594 1383.507812 191.707031 C 1383.507812 167.730469 1402.945312 148.292969 1426.917969 148.292969 C 1450.894531 148.292969 1470.332031 167.730469 1470.332031 191.707031 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1557.160156 191.707031 C 1557.160156 215.683594 1537.722656 235.121094 1513.746094 235.121094 C 1489.769531 235.121094 1470.332031 215.683594 1470.332031 191.707031 C 1470.332031 167.730469 1489.769531 148.292969 1513.746094 148.292969 C 1537.722656 148.292969 1557.160156 167.730469 1557.160156 191.707031 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1643.984375 191.707031 C 1643.984375 215.683594 1624.546875 235.121094 1600.570312 235.121094 C 1576.59375 235.121094 1557.160156 215.683594 1557.160156 191.707031 C 1557.160156 167.730469 1576.59375 148.292969 1600.570312 148.292969 C 1624.546875 148.292969 1643.984375 167.730469 1643.984375 191.707031 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1470.332031 278.53125 C 1470.332031 302.507812 1450.894531 321.945312 1426.917969 321.945312 C 1402.945312 321.945312 1383.507812 302.507812 1383.507812 278.53125 C 1383.507812 254.558594 1402.945312 235.121094 1426.917969 235.121094 C 1450.894531 235.121094 1470.332031 254.558594 1470.332031 278.53125 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1557.160156 278.53125 C 1557.160156 302.507812 1537.722656 321.945312 1513.746094 321.945312 C 1489.769531 321.945312 1470.332031 302.507812 1470.332031 278.53125 C 1470.332031 254.558594 1489.769531 235.121094 1513.746094 235.121094 C 1537.722656 235.121094 1557.160156 254.558594 1557.160156 278.53125 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1643.984375 278.53125 C 1643.984375 302.507812 1624.546875 321.945312 1600.570312 321.945312 C 1576.59375 321.945312 1557.160156 302.507812 1557.160156 278.53125 C 1557.160156 254.558594 1576.59375 235.121094 1600.570312 235.121094 C 1624.546875 235.121094 1643.984375 254.558594 1643.984375 278.53125 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1470.332031 365.359375 C 1470.332031 389.335938 1450.894531 408.773438 1426.917969 408.773438 C 1402.945312 408.773438 1383.507812 389.335938 1383.507812 365.359375 C 1383.507812 341.382812 1402.945312 321.945312 1426.917969 321.945312 C 1450.894531 321.945312 1470.332031 341.382812 1470.332031 365.359375 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1557.160156 365.359375 C 1557.160156 389.335938 1537.722656 408.773438 1513.746094 408.773438 C 1489.769531 408.773438 1470.332031 389.335938 1470.332031 365.359375 C 1470.332031 341.382812 1489.769531 321.945312 1513.746094 321.945312 C 1537.722656 321.945312 1557.160156 341.382812 1557.160156 365.359375 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1643.984375 365.359375 C 1643.984375 389.335938 1624.546875 408.773438 1600.570312 408.773438 C 1576.59375 408.773438 1557.160156 389.335938 1557.160156 365.359375 C 1557.160156 341.382812 1576.59375 321.945312 1600.570312 321.945312 C 1624.546875 321.945312 1643.984375 341.382812 1643.984375 365.359375 \"/> </svg>","<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1383.5078 670.2266 260.4766 260.4805\"> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1383.507812 700.4375 L 1413.71875 670.226562 L 1383.507812 670.226562 Z M 1383.507812 700.4375 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1536.140625 670.226562 L 1505.707031 670.226562 L 1383.507812 792.429688 L 1383.507812 822.863281 Z M 1536.140625 670.226562 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1474.929688 670.226562 L 1444.496094 670.226562 L 1383.507812 731.21875 L 1383.507812 761.652344 Z M 1474.929688 670.226562 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1643.984375 670.226562 L 1628.132812 670.226562 L 1383.507812 914.851562 L 1383.507812 930.707031 L 1398.085938 930.707031 L 1643.984375 684.808594 Z M 1643.984375 670.226562 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1643.984375 807.230469 L 1643.984375 776.796875 L 1490.078125 930.707031 L 1520.511719 930.707031 Z M 1643.984375 807.230469 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1643.984375 929.65625 L 1643.984375 899.222656 L 1612.5 930.707031 L 1642.933594 930.707031 Z M 1643.984375 929.65625 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1597.351562 670.226562 L 1566.917969 670.226562 L 1383.507812 853.640625 L 1383.507812 884.074219 Z M 1597.351562 670.226562 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1643.984375 868.445312 L 1643.984375 838.011719 L 1551.289062 930.707031 L 1581.722656 930.707031 Z M 1643.984375 868.445312 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1643.984375 746.019531 L 1643.984375 715.585938 L 1428.863281 930.707031 L 1459.296875 930.707031 Z M 1643.984375 746.019531 \"/> </svg>","<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"861.6797 148.2930 260.4766 260.4805\"> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 880.988281 148.292969 L 861.679688 148.292969 L 861.679688 408.773438 L 880.988281 408.773438 Z M 880.988281 148.292969 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1021.78125 408.773438 L 1041.769531 408.773438 L 1041.769531 148.292969 L 1021.78125 148.292969 Z M 1021.78125 408.773438 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1061.972656 408.773438 L 1081.960938 408.773438 L 1081.960938 148.292969 L 1061.972656 148.292969 Z M 1061.972656 408.773438 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 1122.15625 148.292969 L 1102.167969 148.292969 L 1102.167969 408.773438 L 1122.15625 408.773438 Z M 1122.15625 148.292969 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 901.195312 408.773438 L 921.183594 408.773438 L 921.183594 148.292969 L 901.195312 148.292969 Z M 901.195312 408.773438 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 981.585938 408.773438 L 1001.574219 408.773438 L 1001.574219 148.292969 L 981.585938 148.292969 Z M 981.585938 408.773438 \"/> <path fill-rule=\"nonzero\" fill=\"#E3002C\" d=\"M 941.390625 408.773438 L 961.378906 408.773438 L 961.378906 148.292969 L 941.390625 148.292969 Z M 941.390625 408.773438 \"/> </svg>"];
+
+const ls = {get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+let lang = ls.get("cbs-lang") || "en";
+let answers = Object.fromEntries(BENEFITS.map(b=>[b.id,b.a]));
+let G = null;
+const $ = id => document.getElementById(id);
+const t = k => T[lang][k] ?? k;
+const esc = s => String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const ICON_OK = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+const ICON_NO = '<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+
+function applyLang(){
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-t]").forEach(el=>el.textContent=t(el.dataset.t));
+  document.querySelectorAll("[data-ph]").forEach(el=>el.placeholder=t(el.dataset.ph));
+  $("lang-lv").setAttribute("aria-pressed",lang==="lv"); $("lang-en").setAttribute("aria-pressed",lang==="en");
+  $("meta-count").textContent = BENEFITS.length+" "+t("cards");
+  if(G && !$("s-game").hidden) renderCards();
+  if(!$("s-result").hidden) renderResult();
+}
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.lang;ls.set("cbs-lang",lang);applyLang()});
+
+function show(id){["s-intro","s-game","s-result"].forEach(s=>$(s).hidden = s!==id);window.scrollTo(0,0)}
+
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+/* ---------- Game ---------- */
+function startGame(){
+  G = {order:shuffle(BENEFITS.map(b=>b.id)), i:0, score:0, streak:0, best:0, picks:{}, busy:false};
+  show("s-game"); renderHud(); renderCards();
+}
+function renderHud(){
+  const n=BENEFITS.length;
+  $("bar").style.width = (G.i/n*100)+"%";
+  $("count").textContent = Math.min(G.i+1,n)+" "+t("of")+" "+n;
+  $("score").textContent = G.score;
+  $("streak-n").textContent = G.streak;
+  $("streak").classList.toggle("hot",G.streak>=3);
+}
+function cardHTML(id,idx,cls){
+  const b = BENEFITS.find(x=>x.id===id);
+  return `<div class="card ${cls}" data-id="${id}">
+    <div class="ge" aria-hidden="true">${GE[idx%GE.length]}</div>
+    <div class="num">${String(idx+1).padStart(2,"0")} / ${BENEFITS.length}</div>
+    <div class="q">${esc(b[lang])}</div>
+    <div class="ask">${t("ask")}</div>
+    <div class="stamp s-day1">${t("o_day1")}</div><div class="stamp s-prob">${t("o_prob")}</div><div class="stamp s-none">${t("o_none")}</div>
+  </div>`;
+}
+function renderCards(){
+  const st=$("stage"); st.querySelectorAll(".card").forEach(c=>c.remove());
+  const next=G.order[G.i+1], cur=G.order[G.i];
+  if(next) st.insertAdjacentHTML("beforeend",cardHTML(next,G.i+1,"back"));
+  if(cur){ st.insertAdjacentHTML("beforeend",cardHTML(cur,G.i,"front")); bindDrag(st.querySelector(".card.front")); }
+}
+function bindDrag(card){
+  let sx=0,sy=0,dx=0,dy=0,drag=false;
+  const stamps={day1:card.querySelector(".s-day1"),probation:card.querySelector(".s-prob"),none:card.querySelector(".s-none")};
+  const dir=()=>{ if(-dy>Math.abs(dx)&&-dy>40) return "probation"; if(dx>40) return "day1"; if(dx<-40) return "none"; return null; };
+  card.addEventListener("pointerdown",e=>{ if(G.busy) return; drag=true; sx=e.clientX; sy=e.clientY; dx=dy=0; card.setPointerCapture(e.pointerId); card.style.transition="none"; });
+  card.addEventListener("pointermove",e=>{
+    if(!drag) return; dx=e.clientX-sx; dy=e.clientY-sy;
+    card.style.transform=`translate(${dx}px,${Math.min(dy,40)}px) rotate(${dx/18}deg)`;
+    const d=dir(); for(const k in stamps) stamps[k].style.opacity = k===d ? Math.min(1,(Math.max(Math.abs(dx),-dy)-40)/60) : 0;
+  });
+  const end=()=>{
+    if(!drag) return; drag=false; const d=dir();
+    const far = d==="probation" ? -dy>110 : Math.abs(dx)>110;
+    if(d && far){ answer(d); }
+    else { card.style.transition="transform .25s"; card.style.transform=""; for(const k in stamps) stamps[k].style.opacity=0; }
+  };
+  card.addEventListener("pointerup",end); card.addEventListener("pointercancel",end);
+}
+function answer(pick){
+  if(!G || G.busy || G.i>=G.order.length) return;
+  G.busy=true;
+  const id=G.order[G.i], card=$("stage").querySelector(".card.front");
+  const ok = answers[id]===pick;
+  G.picks[id]=pick;
+  if(ok){ G.streak++; G.best=Math.max(G.best,G.streak); G.score += 100 + Math.min(100,(G.streak-1)*25); }
+  else G.streak=0;
+  toast(ok);
+  if(card){
+    card.querySelectorAll(".stamp").forEach(s=>s.style.opacity=0);
+    const s=card.querySelector(pick==="day1"?".s-day1":pick==="probation"?".s-prob":".s-none"); s.style.opacity=1;
+    const tx = pick==="day1"?"translate(140%,0) rotate(18deg)":pick==="none"?"translate(-140%,0) rotate(-18deg)":"translate(0,-130%)";
+    card.style.transition="transform .35s ease-in"; card.style.transform=tx;
+  }
+  setTimeout(()=>{ G.i++; G.busy=false; renderHud(); if(G.i>=G.order.length) finish(); else renderCards(); }, 340);
+}
+let toastTimer;
+function toast(ok){
+  const el=$("toast"); clearTimeout(toastTimer);
+  el.className="toast "+(ok?"ok":"no");
+  const extra = ok && G.streak>=2 ? ` · ${G.streak}× ${t("streak_x")}` : "";
+  el.innerHTML=(ok?ICON_OK:ICON_NO)+`<span>${esc(t(ok?"correct":"wrong"))}${esc(extra)}</span>`;
+  el.hidden=false; void el.offsetWidth; el.classList.add("show");
+  toastTimer=setTimeout(()=>{el.hidden=true},1000);
+}
+document.querySelectorAll(".ans").forEach(b=>b.onclick=()=>answer(b.dataset.a));
+document.addEventListener("keydown",e=>{
+  if($("s-game").hidden) return;
+  if(e.key==="ArrowRight") answer("day1"); else if(e.key==="ArrowLeft") answer("none"); else if(e.key==="ArrowUp"){e.preventDefault();answer("probation")}
+});
+
+/* ---------- Result ---------- */
+let filterWrong=false;
+function correctCount(){ return BENEFITS.filter(b=>G.picks[b.id]===answers[b.id]).length; }
+function finish(){
+  show("s-result"); filterWrong=false; renderResult();
+}
+function renderResult(){
+  if(!G) return;
+  const c=correctCount(), n=BENEFITS.length, p=c/n;
+  const tier = p>=.9?4:p>=.7?3:p>=.5?2:1;
+  $("r-score").textContent=G.score;
+  $("r-title").textContent=t("t"+tier);
+  $("r-sub").textContent=t("s"+tier);
+  $("r-correct").textContent=c+"/"+n;
+  $("r-acc").textContent=Math.round(p*100)+"%";
+  $("r-streak").textContent=G.best;
+  $("f-all").setAttribute("aria-pressed",!filterWrong); $("f-wrong").setAttribute("aria-pressed",filterWrong);
+  const items = G.order.map(id=>BENEFITS.find(b=>b.id===id)).filter(b=>!filterWrong || G.picks[b.id]!==answers[b.id]);
+  $("review").innerHTML = items.map(b=>{
+    const ok=G.picks[b.id]===answers[b.id], right=answers[b.id];
+    return `<div class="ritem"><div class="mk ${ok?"ok":"no"}" aria-label="${ok?t("correct"):t("wrong")}">${ok?ICON_OK:ICON_NO}</div>
+      <div><h3>${esc(b[lang])}</h3>
+      <div class="tags"><span class="tag ${OPTCLS[right]}">${esc(t(OPT[right]))}</span>${ok?"":`<span class="tag yours" title="${esc(t("you_said"))}">${esc(t(OPT[G.picks[b.id]]))}</span>`}</div>
+      <p>${esc(lang==="lv"?b.nlv:b.nen)}</p></div></div>`;
+  }).join("");
+}
+$("f-all").onclick=()=>{filterWrong=false;renderResult()};
+$("f-wrong").onclick=()=>{filterWrong=true;renderResult()};
+$("again").onclick=()=>{show("s-intro")};
+
+/* ---------- Boot ---------- */
+$("ge-intro").innerHTML=GE[1]; $("ge-result").innerHTML=GE[2];
+$("start").onclick=startGame;
+applyLang();
+
+</script>
+
+</body>
+</html>
